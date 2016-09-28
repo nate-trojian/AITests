@@ -1,11 +1,17 @@
-name := "AITests"
+import Common._
 
-version := "1.0"
+lazy val root = (project in file(".")).
+  settings(commonSettings: _*).
+  settings(Seq(
+    name := "AITests",
+    libraryDependencies ++= Seq(
+      "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.7.3"
+    )
+  ))
 
-scalaVersion := "2.11.7"
+lazy val montecarlo = project in file("montecarlo")
 
-libraryDependencies ++= Seq(
-)
+lazy val neuralnet = project in file("neuralnet")
 
 ideaExcludeFolders += ".idea"
 
